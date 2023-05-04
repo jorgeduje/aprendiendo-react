@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./UsersList.module.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);
@@ -14,16 +15,18 @@ const UsersList = () => {
     <div className={styles.usersContainers}>
       {users.map((elemento) => {
         return (
-          <div key={elemento.id}>
-            <h1
-              style={{
-                color: "yellow",
-              }}
-            >
-              {elemento.name}
-            </h1>
-            <h3>{elemento.phone}</h3>
-          </div>
+          <Link key={elemento.id} to={`/user/${elemento.id}`}>
+            <div>
+              <h1
+                style={{
+                  color: "yellow",
+                }}
+              >
+                {elemento.name}
+              </h1>
+              <h3>{elemento.phone}</h3>
+            </div>
+          </Link>
         );
       })}
     </div>
