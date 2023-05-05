@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Register.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const Register = () => {
 
