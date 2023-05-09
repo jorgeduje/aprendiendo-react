@@ -4,15 +4,13 @@ import { useState, useEffect } from "react";
 import UsersList from "./UsersList";
 
 import styles from "./Home.module.css";
+import { useSelector } from "react-redux";
 
 const Home = () => {
   let nombre = "pepito";
 
-  // let contador = 0 // mutar el estado !==
-
-  // const sumar = ()=>{
-  //   contador++
-  // }
+  const { isLogged } = useSelector((store) => store.authSlice);
+  console.log(isLogged);
 
   const [contador, setContador] = useState(0); // setter
   const [contador2, setContador2] = useState(0); // setter
@@ -20,13 +18,6 @@ const Home = () => {
   const sumar = () => {
     setContador(contador + 1);
   };
-  const sumar2 = (numero) => {
-    setContador2(contador2 + 1);
-  };
-
-  useEffect(() => {
-    console.log("se ejecuto");
-  }, [contador2]);
 
   return (
     <div>
